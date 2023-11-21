@@ -7,7 +7,12 @@ import Navbar from './Components/Navbar';
 import HomePg from './screens/HomePg';
 import CartsPg from './screens/CartsPg';
 
+
 function App() {
+
+  
+
+
   return (
     <BrowserRouter>
       <div className="App">

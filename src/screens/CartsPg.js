@@ -1,9 +1,12 @@
 import React from 'react'
 import {useSelector , useDispatch} from 'react-redux'
+import {addToCart} from '../actions/cartActions'
+import {deleteFromCart} from '../actions/cartActions'
 export default function CartsPg() {
 
     const cartstate = useSelector(state=>state.cartReducer)
     const cartItems = cartstate.cartItems
+    const dispatch = useDispatch()
   return (
     <div>
         <div className='row justify-content-center'>
@@ -18,9 +21,9 @@ export default function CartsPg() {
                      <h1>{item.name} [{item.varient}]</h1>
                      <h1>Price : {item.quantity}*{item.prices[0][item.varient]} = {item.price}</h1>
                      <h1 style={{display:'inline'}}>Quantity : </h1>
-                     <i className="fa fa-plus" aria-hidden="true"></i>
+                     <i className="fa fa-plus" aria-hidden="true" onClick={()=>{dispatch(addToCart(item, item.quantity+1, item.varient ))}}></i>
                      <b>{item.quantity}</b>
-                     <i className="fa fa-minus" aria-hidden="true"></i>
+                     <i className="fa fa-minus" aria-hidden="true" onClick={()=>{dispatch(addToCart(item, item.quantity-1, item.varient ))}}></i>
                      <hr/>
                   </div>
 
@@ -29,7 +32,7 @@ export default function CartsPg() {
                   </div>
 
                   <div className='m-1 w-100'>
-                  <i className="fa fa-trash" aria-hidden="true"></i>
+                  <i className="fa fa-trash" aria-hidden="true" onClick={()=>{dispatch(deleteFromCart(item))}}></i>
                   </div>
                 </div>
                 })}
