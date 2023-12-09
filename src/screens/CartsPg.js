@@ -6,6 +6,7 @@ export default function CartsPg() {
 
     const cartstate = useSelector(state=>state.cartReducer)
     const cartItems = cartstate.cartItems
+    var subtotal = cartItems.reduce((x, item)=> x+item.price, 0)
     const dispatch = useDispatch()
   return (
     <div>
@@ -40,8 +41,9 @@ export default function CartsPg() {
                 
             </div>
 
-            <div className='col-md-4'>
-                
+            <div className='col-md-4 text-right'>
+                <h2 style={{fontSize:'45px'}}>SubTotal : {subtotal} /-</h2>
+                <button className='btn'>CHECK OUT</button>
             </div>
         </div>
     </div>

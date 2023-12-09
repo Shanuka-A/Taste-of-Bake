@@ -1,7 +1,7 @@
 export const addToCart=(cake, quantity, varient)=> (dispatch, getState)=>{
    var cartItem ={
     name :cake.name,
-    _id :cake.id,
+    _id :cake._id,
     image : cake.image,
     varient : varient,
     quantity : Number(quantity),

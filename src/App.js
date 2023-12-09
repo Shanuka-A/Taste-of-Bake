@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import HomePg from './screens/HomePg';
 import CartsPg from './screens/CartsPg';
+import RegisterPg from './screens/RegisterPg';
+import LoginPg from './screens/LoginPg';
+
 
 
 function App() {
@@ -20,6 +23,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePg />} />
           <Route path="/cart" element={<CartsPg />} />
+          <Route path='/register'element={<RegisterPg/>}/>
+          <Route path='/login'element={<LoginPg/>}/>
         </Routes>
       </div>
     </BrowserRouter>

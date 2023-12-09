@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart as addToCartAction } from '../actions/cartActions';
 
@@ -12,7 +12,7 @@ export default function Cake({ cake }) {
   
   const dispatch = useDispatch();
 
-  function addToCart() {
+  function handleAddToCart() {
     dispatch(addToCartAction(cake, quantity, varient));
   }
 
@@ -53,7 +53,7 @@ export default function Cake({ cake }) {
           </h1>
         </div>
         <div className='m-1 w-100'>
-          <button className="btn btn-danger" onClick={addToCart}>Add to Cart</button>
+          <button className="btn btn-danger" onClick={handleAddToCart}>Add to Cart</button>
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function Navbar() {
   const cartstate = useSelector(state => state.cartReducer);
@@ -33,7 +33,7 @@ export default function Navbar() {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <a className="nav-link" href="#" style={{ color: '#fff', fontFamily: 'Arial, sans-serif' }}>
+              <a className="nav-link" href="/login" style={{ color: '#fff', fontFamily: 'Arial, sans-serif' }}>
                 Login
               </a>
             </li>
