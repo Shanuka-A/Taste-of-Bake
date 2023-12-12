@@ -1,21 +1,32 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../actions/userActions';
+import Success from '../Components/Success';
+import Loading from '../Components/Loading';
+import Error from '../Components/Error';
 
 export default function RegisterPg() {
-  const [name, setname] = useState('');
-  const [email, setemail] = useState('');
-  const [password, setpassword] = useState('');
-  const [cpassword, setcpassword] = useState('');
-  const registerState = useState(state =>state.registerUserReducer)
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [cpassword, setCpassword] = useState('');
+  const [formError, setFormError] = useState('');
+  const registerState = useSelector(state => state.registerUserReducer);
+  const { error, loading, success } = registerState;
   const dispatch = useDispatch();
 
-
   const register = async () => {
-    if (password !== cpassword) {
-      console.log("Password is not matched");
+    if (!name || !email || !password || !cpassword) {
+      setFormError('Please fill out all fields.');
       return;
     }
+
+    if (password !== cpassword) {
+      setFormError('Passwords do not match.');
+      return;
+    }
+
+    setFormError('');
 
     const user = {
       name,
@@ -25,10 +36,8 @@ export default function RegisterPg() {
 
     try {
       await dispatch(registerUser(user));
-      // Handle success, e.g., redirect or show a success message
       console.log("Registration successful");
     } catch (error) {
-      // Handle registration failure, e.g., show an error message
       console.error("Registration failed:", error);
     }
   };
@@ -37,6 +46,15 @@ export default function RegisterPg() {
     <div>
       <div className='row justify-content-center mt-5'>
         <div className='col-md-5 mt-5 text-left shadow p-3 mb-5 bg-white rounded'>
+          {error && (<Error error='This Email is Already Used' />)}
+          {loading && (<Loading />)}
+          {success && (<Success success='User Registered Successfully' />)}
+          {formError && (
+            <div className="alert alert-danger" role="alert">
+              {formError}
+            </div>
+          )}
+
           <h2 className='text-center m-2'>Register</h2>
           <div>
             <input
@@ -45,7 +63,7 @@ export default function RegisterPg() {
               placeholder='name'
               className='form-control'
               value={name}
-              onChange={(e) => setname(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
             />
             <input
               required
@@ -53,14 +71,14 @@ export default function RegisterPg() {
               placeholder='email'
               className='form-control'
               value={email}
-              onChange={(e) => setemail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type='password'
               placeholder='password'
               className='form-control'
               value={password}
-              onChange={(e) => setpassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <input
@@ -68,14 +86,15 @@ export default function RegisterPg() {
               placeholder='confirm password'
               className='form-control'
               value={cpassword}
-              onChange={(e) => setcpassword(e.target.value)}
+              onChange={(e) => setCpassword(e.target.value)}
               required
             />
-            <button onClick={register} className='btn mt-5'>
+            <br/>
+            <button onClick={register} className='btn btn-outline-danger' >
               REGISTER
             </button>
-            <br/>
-            <a style={{color:'black'}} href='/login'>Click Here To Login</a>
+            <br />
+            <a style={{ color: 'black' }} href='/login'>Click Here To Login</a>
           </div>
         </div>
       </div>

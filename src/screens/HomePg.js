@@ -4,12 +4,14 @@ import {getAllCakes} from '../actions/cakeActions'
 import Cake from '../Components/Cake';
 import cakes from '../cakedata';
 
+
 export default function HomePg() {
   const dispatch=useDispatch
-
+ 
 
   return (
     <div>
+      
       <div className='row'>
         []
         {cakes.map((cake) => {
