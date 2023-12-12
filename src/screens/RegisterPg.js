@@ -7,7 +7,9 @@ export default function RegisterPg() {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const [cpassword, setcpassword] = useState('');
+  const registerState = useState(state =>state.registerUserReducer)
   const dispatch = useDispatch();
+
 
   const register = async () => {
     if (password !== cpassword) {
@@ -34,7 +36,7 @@ export default function RegisterPg() {
   return (
     <div>
       <div className='row justify-content-center mt-5'>
-        <div className='col-md-5 mt-5 text-left'>
+        <div className='col-md-5 mt-5 text-left shadow p-3 mb-5 bg-white rounded'>
           <h2 className='text-center m-2'>Register</h2>
           <div>
             <input
@@ -72,6 +74,8 @@ export default function RegisterPg() {
             <button onClick={register} className='btn mt-5'>
               REGISTER
             </button>
+            <br/>
+            <a style={{color:'black'}} href='/login'>Click Here To Login</a>
           </div>
         </div>
       </div>

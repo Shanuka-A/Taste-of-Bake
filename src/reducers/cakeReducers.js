@@ -1,19 +1,32 @@
-export const getAllCakesReducer=(state={cakes :[]}, action)=>{
-
-    switch(action.type)
-    {
-        case 'GET_CAKES_REQUEST': return{
-            loading : true,
-            ...state
-        }
-        case 'GET_CAKES_SUCCESS': return{
-            loading : false,
-            cakes : action.payload
-        }
-        case 'GET_CAKES_FAILED': return{
-            error : action.payload,
-            loading : false
-        }
-        default : return state
+// reducers/cakeReducer.js
+const initialState = {
+    loading: false,
+    cakes: [],
+    error: null,
+  };
+  
+  export const getAllCakesReducer = (state = { cakes: [] }, action) => {
+    switch (action.type) {
+      case 'GET_CAKES_REQUEST':
+        return {
+          ...state,
+          loading: true,
+        };
+      case 'GET_CAKES_SUCCESS':
+        return {
+          ...state,
+          loading: false,
+          cakes: action.payload,
+          error: null,
+        };
+      case 'GET_CAKES_FAILED':
+        return {
+          ...state,
+          loading: false,
+          error: action.payload,
+        };
+      default:
+        return state;
     }
-}
+  };
+  

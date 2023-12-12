@@ -11,6 +11,7 @@ export default function HomePg() {
   return (
     <div>
       <div className='row'>
+        []
         {cakes.map((cake) => {
           return (
             <div className='col-md-4' key={cake.id}>

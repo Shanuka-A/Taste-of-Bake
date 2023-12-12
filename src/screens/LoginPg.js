@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../actions/userActions';
 
@@ -6,6 +6,16 @@ export default function LoginPg() {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const dispatch = useDispatch();
+
+
+  useEffect(()=>{
+    if(localStorage.getItem('currentUser'))
+    {
+      window.location.href='/'
+    }
+
+  }, [])
+
 
   const login = async () => {
     const userCredentials = {
@@ -25,8 +35,8 @@ export default function LoginPg() {
 
   return (
     <div>
-      <div className='row justify-content-center mt-5'>
-        <div className='col-md-5 mt-5 text-left'>
+      <div className='row justify-content-center mt-5' >
+        <div className='col-md-5 mt-5 text-left shadow p-3 mb-5 bg-white rounded'>
           <h2 className='text-center m-2'>Login</h2>
           <div>
             <input
@@ -48,6 +58,8 @@ export default function LoginPg() {
             <button onClick={login} className='btn mt-5'>
               LOGIN
             </button>
+            <br/>
+            <a style={{color:'black'}} href='/register'>Click Here To Register</a>
           </div>
         </div>
       </div>

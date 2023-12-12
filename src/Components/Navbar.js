@@ -1,8 +1,12 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutUser } from '../actions/userActions';
 
 export default function Navbar() {
-  const cartstate = useSelector(state => state.cartReducer);
+  const cartstate = useSelector((state) => state.cartReducer);
+  const userstate = useSelector((state) => state.loginUserReducer);
+  const { currentUser } = userstate;
+  const dispatch=useDispatch()
 
   const gradientStyle = {
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -31,12 +35,35 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item active">
-              <a className="nav-link" href="/login" style={{ color: '#fff', fontFamily: 'Arial, sans-serif' }}>
-                Login
-              </a>
-            </li>
+          <ul className="navbar-nav ml-auto">
+            {currentUser ? (
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  {currentUser.name}
+                </a>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a className="dropdown-item" href="#">
+                    Orders
+                  </a>
+                  <a className="dropdown-item" href="#" onClick={()=>{dispatch(logoutUser())}}>
+                    <li>Logout</li>
+                  </a>
+                </div>
+              </li>
+            ) : (
+              <li className="nav-item">
+                <a className="nav-link" href="/login">
+                  Login
+                </a>
+              </li>
+            )}
             <li className="nav-item">
               <a className="nav-link" href="/cart" style={{ color: '#fff', fontFamily: 'Arial, sans-serif' }}>
                 Cart{' '}

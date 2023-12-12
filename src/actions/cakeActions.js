@@ -1,3 +1,4 @@
+// actions/cakeActions.js
 import axios from "axios";
 
 export const getAllCakes = () => async (dispatch) => {
