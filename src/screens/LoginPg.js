@@ -40,7 +40,15 @@ export default function LoginPg() {
   };
 
   return (
-    <div>
+    <div style={{
+      background:`rgba(0, 0, 0, 0.5) url(${require('../Pic/nnnnn.jpg')}) center/cover no-repeat`,
+      height: '100vh',
+      backgroundSize: '100%',
+      position: 'relative',
+      overflow: 'hidden',
+      
+      
+    }} >
       <div className='row justify-content-center mt-5'>
         <div className='col-md-5 mt-5 text-left shadow p-3 mb-5 bg-white rounded'>
           <h2 className='text-center m-2'>Login</h2>

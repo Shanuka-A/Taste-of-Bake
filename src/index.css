@@ -15,12 +15,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: black;
+  padding: 20px 80px;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.06);
+
+}
+
 
 .nav-link{
-  color: black !important;
+  color: rgb(255, 255, 255) !important;
 }
 .nav-brand{
-  color: black !important; 
+  color: rgb(255, 255, 255) !important; 
 }
 
 h1{
@@ -53,3 +63,5 @@ input{
   margin-top: 10px !important;
   box-shadow: none !important;
 }
+
+
