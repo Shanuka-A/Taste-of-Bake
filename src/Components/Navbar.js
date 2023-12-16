@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../actions/userActions';
-import { FaShoppingCart, FaInfoCircle, FaList, FaSignOutAlt } from 'react-icons/fa';
+import { FaShoppingCart, FaInfoCircle, FaList, FaSignOutAlt, FaHome } from 'react-icons/fa';
+import logo from '../Pic/logo.png'; // Import your logo file
 
 export default function Navbar() {
   const cartstate = useSelector((state) => state.cartReducer);
@@ -9,14 +10,24 @@ export default function Navbar() {
   const { currentUser } = userstate;
   const dispatch = useDispatch();
 
-  const iconColor = 'blue'; // Set the desired color for icons
+  const iconColor = 'blue'; // Set the color for icons
+  const gradientStyle = {
+    background: 'linear-gradient(45deg, white 30%, white 90%)', // Updated with a white gradient
+    // boxShadow: '0 1px 2px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+    padding: '10px 20px',
+    fontSize: '16px',
+  };
+
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg shadow-lg mb-5 " >
-        <a className="navbar-brand" href="/" style={{ color: '#fff', fontFamily: 'Arial, sans-serif' }}>
-          Taste of Bakes
+      <nav className="navbar navbar-expand-lg shadow-lg mb-1   " style={gradientStyle}>
+        <a className="navbar-brand " href="/" style={{ color: 'black' }}>
+          <img src={logo} alt="Logo" height="50" className="mr-2" />
+          <span style={{ fontSize: '30px' }}>Taste of Bakes</span>
         </a>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -58,6 +69,12 @@ export default function Navbar() {
                 </a>
               </li>
             )}
+
+            <li className="nav-item">
+              <a className="nav-link" href="/home">
+                <FaHome color={iconColor} /> Home
+              </a>
+            </li>
             <li className="nav-item">
               <a className="nav-link" href="/cart" >
                 <FaShoppingCart color={iconColor} /> Cart{' '}
@@ -70,6 +87,9 @@ export default function Navbar() {
                 <FaInfoCircle color={iconColor} /> About Us
               </a>
             </li>
+
+
+
           </ul>
         </div>
       </nav>

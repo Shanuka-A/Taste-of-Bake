@@ -68,7 +68,7 @@ export default function RegisterPg() {
             <input
               required
               type='text'
-              placeholder='name'
+              placeholder='Name'
               className='form-control'
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -76,14 +76,14 @@ export default function RegisterPg() {
             <input
               required
               type='text'
-              placeholder='email'
+              placeholder='Email'
               className='form-control'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type='password'
-              placeholder='password'
+              placeholder='Password'
               className='form-control'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -91,7 +91,7 @@ export default function RegisterPg() {
             />
             <input
               type='password'
-              placeholder='confirm password'
+              placeholder='Confirm Password'
               className='form-control'
               value={cpassword}
               onChange={(e) => setCpassword(e.target.value)}

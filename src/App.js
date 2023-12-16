@@ -10,6 +10,8 @@ import CartsPg from './screens/CartsPg';
 import RegisterPg from './screens/RegisterPg';
 import LoginPg from './screens/LoginPg';
 import AboutUs from './screens/AboutUs';
+import Footer from './Components/Footer';
+import HomePage from './screens/HomePage';
 
 
 
@@ -28,8 +30,9 @@ function App() {
           <Route path='/register'element={<RegisterPg/>}/>
           <Route path='/login'element={<LoginPg/>}/>
           <Route path='/aboutus'element={<AboutUs/>}/>
+          <Route path='/home' element={<HomePage/>}/>
         </Routes>
-        
+        <Footer/>
       </div>
     </BrowserRouter>
   );

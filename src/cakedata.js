@@ -69,6 +69,63 @@ const cakes = [
       image: "http://3.bp.blogspot.com/_JEROipmsFrY/TKp07ZdDFWI/AAAAAAAAAkI/snsDMZZrEjY/s1600/DSC_0047.JPG",
       description: "Savor the flavor of our moist and delicious Carrot Cake with cream cheese frosting.",
     },
+    {
+      name: "Strawberry Shortcake",
+      varients: ["small", "medium", "large"],
+      prices: [
+        {
+          small: 720,
+          medium: 1050,
+          large: 1300,
+        },
+      ],
+      category: "Fruit Cake",
+      image: "https://celebratingsweets.com/wp-content/uploads/2018/06/Strawberry-Shortcake-Cake-4.jpg",
+      description: "A classic Strawberry Shortcake with layers of sponge cake, fresh strawberries, and whipped cream."
+    },
+    {
+      name: "Cherry Almond Cake",
+      varients: ["small", "medium", "large"],
+      prices: [
+        {
+          small: 780,
+          medium: 1130,
+          large: 1380,
+        },
+      ],
+      category: "Fruit Cake",
+      image: "https://tse4.mm.bing.net/th?id=OIP.JHkwT0tejqMC-Js7lxPwMQDMEy&pid=Api&P=0&h=220",
+      description: "Indulge in the delightful combination of cherries and almonds in this moist and flavorful cake."
+    },
+    {
+      name: "Dark Chocolate Raspberry Cake",
+      varients: ["small", "medium", "large"],
+      prices: [
+        {
+          small: 850,
+          medium: 1220,
+          large: 1470,
+        },
+      ],
+      category: "Chocolate Cake",
+      image:  "https://tse4.mm.bing.net/th?id=OIP.qkOUI_GRmbfGAsCuEVLUMQHaHa&pid=Api&P=0&h=220",
+      description: "Rich dark chocolate cake paired with the sweetness of ripe raspberries – a true indulgence."
+    },
+    {
+      name: "Pineapple Upside-Down Cake",
+      varients: ["small", "medium", "large"],
+      prices: [
+        {
+          small: 700,
+          medium: 1020,
+          large: 1260,
+        },
+      ],
+      category: "Fruit Cake",
+      image: "https://tse3.mm.bing.net/th?id=OIP.tqMX2i8x9EPbn9lI2GrgawHaLH&pid=Api&P=0&h=220",
+      description: "Experience the tropical delight of pineapple and caramelized sugar in this classic upside-down cake."
+    },
+    
   ];
   
   export default cakes;

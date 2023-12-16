@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../actions/userActions';
 import Error from '../Components/Error';
 import Loading from '../Components/Loading';
+import { FiArrowRight } from "react-icons/fi";
 
 export default function LoginPg() {
   const [email, setEmail] = useState('');
@@ -65,14 +66,14 @@ export default function LoginPg() {
             <input
               required
               type='text'
-              placeholder='email'
+              placeholder='Email'
               className='form-control'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type='password'
-              placeholder='password'
+              placeholder='Password'
               className='form-control'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -80,7 +81,7 @@ export default function LoginPg() {
             />
             <br/>
             <button onClick={login} className='btn btn-outline-primary'>
-              LOGIN
+              LOGIN <FiArrowRight />
             </button>
             <br />
             <a style={{ color: 'black' }} href='/register'>Click Here To Register</a>

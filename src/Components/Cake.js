@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart as addToCartAction } from '../actions/cartActions';
 
 export default function Cake({ cake }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [varient, setVarient] = useState(cake.varients[0] || 'small');
   const [quantity, setQuantity] = useState(1);
-  const [varient, setVarient] = useState('small');
-  
   const dispatch = useDispatch();
 
   function handleAddToCart() {
@@ -17,7 +16,7 @@ export default function Cake({ cake }) {
   }
 
   return (
-    <div style={{ margin: '70px' }} className='shadow-lg p-3 mb-5 bg-white rounded'>
+    <div style={{ margin: '70px' }} className='shadow-lg p-3 mb-5 bg-white rounded cake-item'>
       <div onClick={handleShow}>
         <h1>{cake.name}</h1>
         <img src={cake.image} className="img-fluid" style={{ height: '200px' }} alt="Cake" />
@@ -46,10 +45,10 @@ export default function Cake({ cake }) {
       </div>
       <div className="flex-container">
         <div className='m-1 w-100'>
-          <h1 className='mt-1'>Price: Rs/-
+          <h1 className='mt-1'>Price: 
             {cake.prices && cake.prices.length > 0 && cake.prices[0][varient]
-              ? cake.prices[0][varient] * quantity
-              : 'N/A'}
+              ? `Rs/- ${cake.prices[0][varient] * quantity}`
+              : 'Price not available'}
           </h1>
         </div>
         <div className='m-1 w-100'>
@@ -66,7 +65,7 @@ export default function Cake({ cake }) {
           <p>{cake.description}</p>
         </Modal.Body>
         <Modal.Footer>
-          <button className='btn' onClick={handleClose}>Close</button>
+          <button className='btn btn-secondary' onClick={handleClose}>Close</button>
         </Modal.Footer>
       </Modal>
     </div>
