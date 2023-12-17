@@ -76,9 +76,11 @@ export default function Navbar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/cart" >
+              <a className="nav-link" href="/cart">
                 <FaShoppingCart color={iconColor} /> Cart{' '}
-                <span className="badge badge-pill badge-light">{cartstate.cartItems.length}</span>
+                <span className="badge badge-pill badge-light" style={{ backgroundColor: 'black', color: 'white' }}>
+                  {cartstate.cartItems.length}
+                </span>
               </a>
             </li>
 
